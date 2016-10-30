@@ -30,39 +30,20 @@
  * copyright holder.
  */
 
-package org.opensirf.storage.monitor.api;
+package org.opensirf.storage.monitor.test;
 
-import java.io.File;
-
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-
-import org.glassfish.jersey.media.multipart.FormDataParam;
+import org.junit.Test;
+import org.opensirf.storage.monitor.api.DiskApi;
 import org.opensirf.storage.monitor.model.StorageMetadata;
 
 /**
  * @author pviana
  *
  */
-@Path("sirf")
-public class DiskApi {
-	@GET
-	@Path("storageMetadata")
-	@Consumes(MediaType.MULTIPART_FORM_DATA)
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public StorageMetadata getMetadata(@FormDataParam("storagePath") String storagePath) {
-		System.out.println("STORAGEPATH==" + storagePath);
-		
-		if(storagePath.equalsIgnoreCase("swift"))
-			storagePath = DEFAULT_SWIFT_FILESYSTEM_LOCATION;
-		
-		File f = new File(storagePath);
-		float percentageFree = ((float) f.getUsableSpace()) / ((float) f.getTotalSpace());
-		return new StorageMetadata(percentageFree);
+public class SwiftSpaceTest {
+	@Test
+	public void testDiskUsage() {
+		StorageMetadata m = new DiskApi().getMetadata("swift");
+		System.out.println(m.getFreeDiskSpace());
 	}
-	
-	public static final String DEFAULT_SWIFT_FILESYSTEM_LOCATION = "/opt/stack/data";
 }

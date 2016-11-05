@@ -54,14 +54,14 @@ public class DiskApi {
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public StorageMetadata getMetadata(@FormDataParam("storagePath") String storagePath) {
-		System.out.println("STORAGEPATH==" + storagePath);
-		
 		if(storagePath.equalsIgnoreCase("swift"))
 			storagePath = DEFAULT_SWIFT_FILESYSTEM_LOCATION;
 		
 		File f = new File(storagePath);
+		
 		float percentageFree = ((float) f.getUsableSpace()) / ((float) f.getTotalSpace());
-		return new StorageMetadata(percentageFree);
+		float spaceInMegaBytes = ((float) (f.getTotalSpace() / 1024 / 1024));
+		return new StorageMetadata(percentageFree, spaceInMegaBytes);
 	}
 	
 	public static final String DEFAULT_SWIFT_FILESYSTEM_LOCATION = "/opt/stack/data";

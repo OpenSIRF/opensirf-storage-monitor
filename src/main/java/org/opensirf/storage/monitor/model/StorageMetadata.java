@@ -44,9 +44,10 @@ public class StorageMetadata {
 		super();
 	}
 	
-	public StorageMetadata(float freeDiskSpace) {
+	public StorageMetadata(float freeDiskSpace, float spaceInMegabytes) {
 		this();
 		this.freeDiskSpace = freeDiskSpace;
+		this.spaceInMegabytes = spaceInMegabytes;
 	}
 
 	public float getFreeDiskSpace() {
@@ -56,6 +57,16 @@ public class StorageMetadata {
 	public void setFreeDiskSpace(float freeDiskSpace) {
 		this.freeDiskSpace = freeDiskSpace;
 	}
+	
+	public float getSpaceInMegabytes() {
+		return spaceInMegabytes;
+	}
+
+	public void setSpaceInMegabytes(float spaceInMegabytes) {
+		this.spaceInMegabytes = spaceInMegabytes;
+	}
 
 	private float freeDiskSpace;
+	
+	private float spaceInMegabytes;
 }

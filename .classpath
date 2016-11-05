@@ -3,7 +3,6 @@
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="src/main/resources"/>
 	<classpathentry kind="src" path="src/test/java"/>
-	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
 	<classpathentry kind="lib" path="/home/phil/.ivy2/cache/org.opensirf/opensirf-core/jars/opensirf-core-1.0.0.jar"/>
 	<classpathentry kind="lib" path="/home/phil/.ivy2/cache/org.glassfish.jersey.media/jersey-media-multipart/jars/jersey-media-multipart-2.23.2.jar"/>
 	<classpathentry kind="lib" path="/home/phil/.ivy2/cache/org.glassfish.jersey.core/jersey-common/jars/jersey-common-2.23.2.jar"/>

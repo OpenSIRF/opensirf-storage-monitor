@@ -35,7 +35,7 @@ package org.opensirf.storage.monitor.api;
 import java.io.File;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -49,7 +49,7 @@ import org.opensirf.storage.monitor.model.StorageMetadata;
  */
 @Path("sirf")
 public class DiskApi {
-	@GET
+	@POST
 	@Path("storageMetadata")
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
